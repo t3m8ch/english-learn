@@ -10,7 +10,7 @@ disable-model-invocation: true
 
 This skill performs the deferred persistence phase for the English-learning repository.
 
-The invocation itself is explicit authorization to modify the repository and create commits. Never invoke this workflow merely because the user sends an English phrase or asks for an explanation. Ordinary phrase messages receive an explanation only, as required by `AGENTS.md`.
+The invocation itself is explicit authorization to modify the repository, create commits, and push them to the current branch upstream. Never invoke this workflow merely because the user sends an English phrase or asks for an explanation. Ordinary phrase messages receive an explanation only, as required by `AGENTS.md`.
 
 Unless the user narrows the scope in the invocation arguments, process every phrase from the current conversation that has been explained but does not yet have a phrase record. Preserve conversation order.
 
@@ -38,7 +38,10 @@ For each phrase:
 6. Maintain reciprocal relative links between the phrase record and every knowledge entry used by it.
 7. Validate exact source text, template fields, meaning boundaries, link targets, and the absence of fabricated context.
 8. Stage only explicit paths changed for this phrase, run `git diff --cached --check`, and create one atomic commit using the repository message conventions.
-9. Record the short commit hash before continuing to the next phrase.
+9. Push the commit to the configured upstream with ordinary `git push`. If the branch has no upstream and `origin` exists, establish it with `git push -u origin <current-branch>`.
+10. Record the short commit hash and push destination before continuing to the next phrase.
+
+Never force-push or rewrite remote history. If push fails, keep the local commit intact, stop before processing the next phrase, and report the failure.
 
 Never use a background subagent for repository writes in this workflow: shared knowledge files and ordered per-phrase commits require a single writer.
 
@@ -48,6 +51,7 @@ Do not repeat the full linguistic explanation unless the user asks for it. For e
 
 - the phrase or an unambiguous short label;
 - created and updated records;
-- the short commit hash and commit message.
+- the short commit hash and commit message;
+- the push destination and successful result, or the exact push failure.
 
 Report skipped already-recorded phrases separately. Do not expose routine internal tool activity.
