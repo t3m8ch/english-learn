@@ -24,3 +24,19 @@ part_of_speech: verb
 ### Примечание
 
 В консенсусе выражение `two majorities overlap` обычно означает, что группы большинства имеют хотя бы один общий сервер.
+
+## Значение 2: одновременно действовать в переходный период
+
+### Когда используется
+
+О требованиях двух конфигураций `overlap during transitions` означает, что на переходном этапе они применяются одновременно. Это не утверждение, что любые выбранные большинство старой и большинство новой конфигурации обязательно содержат один и тот же сервер.
+
+### Контексты
+
+- `Membership changes: Raft’s mechanism for changing the set of servers in the cluster uses a new joint consensus approach where the majorities of two different configurations overlap during transitions. This allows the cluster to continue operating normally during configuration changes.`
+  — На переходном этапе одновременно требуется большинство голосов как старой, так и новой конфигурации.
+  — [Источник](../../phrases/2026/09/2026-09-17-012.md)
+
+### Примечание
+
+Естественный технический перевод раскрывает механику: «одновременно требуется большинство старой и новой конфигурации».

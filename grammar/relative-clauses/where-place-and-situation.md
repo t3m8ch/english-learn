@@ -27,6 +27,10 @@ category: relative-clauses
   — Где; куда; в котором; в случае, когда.
   — [Источник](../../phrases/2026/09/2026-09-17-009.md)
 
+- `Membership changes: Raft’s mechanism for changing the set of servers in the cluster uses a new joint consensus approach where the majorities of two different configurations overlap during transitions. This allows the cluster to continue operating normally during configuration changes.`
+  — Raft использует подход совместного консенсуса, при котором на переходном этапе одновременно учитываются две конфигурации.
+  — [Источник](../../phrases/2026/09/2026-09-17-012.md)
+
 ## Ограничения и типичные ошибки
 
 В техническом тексте `where` не обязательно обозначает физическое место: оно может относиться к состоянию, случаю, системе или способу.
