@@ -24,3 +24,15 @@ part_of_speech: adjective
 ### Примечание
 
 `Primary goal` — «главная» или «основная цель».
+
+## Значение 2: основной узел (primary node)
+
+### Когда используется
+
+В базах данных и распределённых системах `the primary` — существительное: основной узел, который принимает записи, в паре с `replica`. Слово `node` опускается, потому что оно понятно из контекста.
+
+### Контексты
+
+- `The replica is already down (its startup process aborted), so its dir is frozen and consistent; the primary may still be live (best-effort snapshot).`
+  — Реплика уже упала; primary же ещё может работать, поэтому его снимок делается без гарантий.
+  — [Источник](../../phrases/2026/09/2026-09-28-001.md)
